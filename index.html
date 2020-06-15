@@ -19,8 +19,16 @@
                 return "scissors";
             }
         }
+
+        function selectPlayerChoice() {
+            let playerSelection = window.prompt("Rock, Paper, or Scissors?");
+            return playerSelection.toLowerCase();
+        }
         
+
         function playRound(playerSelection, computerSelection) {
+            console.log(`You chose: ${playerSelection} \nThe computer chose: ${computerSelection}`);
+
             if (playerSelection === computerSelection) {
                 return "It's a draw!";
             }
@@ -39,13 +47,30 @@
                 return "You win! Scissors beats Paper";
             }
         }
-
-        let playerSelection = window.prompt("Rock, Paper, or Scissors?").toLowerCase();
-        let computerSelection = computerPlay()
-
-        console.log(`You chose ${playerSelection} \nThe computer chose ${computerSelection}`);
-        console.log(playRound(playerSelection, computerSelection))
         
+
+        function game() {
+            let roundCount;
+            let compScore = 0;
+            let playerScore = 0;
+            for (i = 0; i < 5; i++) {
+                let result = playRound(selectPlayerChoice(), computerPlay());
+                if (result.includes("You win")) {
+                    playerScore += 1;
+                } else {
+                    compScore += 1;
+                }
+                roundCount += 1;
+                console.log(result + `\nScore \nYou: ${playerScore} \nComputer: ${compScore}`);
+            }
+            if (compScore > playerScore) {
+                return "Computer wins! Bad luck.";
+            } else {
+                return "You win! Well done.";
+            }
+        }
+  
+        console.log(game())
 
 
     </script>
