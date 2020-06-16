@@ -9,7 +9,7 @@
     <script>
         // computerPlay - function to randomly return either "Rock", "Paper" or "Scissors"
      
-        function computerPlay() {
+        function selectComputerChoice() {
             let rand = Math.random();
             if (rand <= 1/3) {
                 return "rock";
@@ -27,7 +27,7 @@
         
 
         function playRound(playerSelection, computerSelection) {
-            console.log(`You chose: ${playerSelection} \nThe computer chose: ${computerSelection}`);
+            console.log((`You chose: ${playerSelection} \nThe computer chose: ${computerSelection}`));
 
             if (playerSelection === computerSelection) {
                 return "It's a draw!";
@@ -50,27 +50,30 @@
         
 
         function game() {
-            let roundCount;
+            let roundCount = 1;
             let compScore = 0;
             let playerScore = 0;
             for (i = 0; i < 5; i++) {
-                let result = playRound(selectPlayerChoice(), computerPlay());
+                console.log(`ROUND ${roundCount}`);
+                let result = playRound(selectPlayerChoice(), selectComputerChoice());
                 if (result.includes("You win")) {
                     playerScore += 1;
                 } else {
                     compScore += 1;
                 }
                 roundCount += 1;
-                console.log(result + `\nScore \nYou: ${playerScore} \nComputer: ${compScore}`);
+                console.log(result + `\nSCORE \nYou: ${playerScore} \nComputer: ${compScore}`);
             }
             if (compScore > playerScore) {
                 return "Computer wins! Bad luck.";
+            } else if (compScore === playerScore) {
+                return "A complete draw!";
             } else {
                 return "You win! Well done.";
             }
         }
   
-        console.log(game())
+        // console.log(game())
 
 
     </script>
