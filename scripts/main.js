@@ -39,6 +39,35 @@
             }
         }
         
+        // EventListener for each button that calls the playRound function on each click
+
+        // const buttonRock = document.querySelector(".button--rock");
+        // const buttonPaper = document.querySelector(".button--paper");
+        // const buttonScissors = document.querySelector(".button--scissors");
+        const buttons = document.querySelectorAll(".button");
+
+        // Add function on click with the following code, using "function" syntax
+
+        buttons.forEach(function(button) {
+            button.addEventListener('click', function (e) {
+                if (button.className.includes("rock")) {
+                    console.log(("rock selected"));
+                } else if (button.className.includes("paper")) {
+                    console.log(("paper selected"));
+                } else {
+                    console.log("scissors selected");
+                }     
+            });
+        });
+
+        // The same function using arrow syntax
+
+        // buttons.forEach(button => {
+        //     button.addEventListener('click', function (e) {
+        //         console.log(e);
+        //     });
+        // });
+        
 
         function game() {
             let roundCount = 1;
