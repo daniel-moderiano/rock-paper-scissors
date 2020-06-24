@@ -49,23 +49,49 @@
         const roundResult = document.querySelector(".scoreboard__round-result");
         const playerScore = document.querySelector(".scoreboard__score--player");
         const compScore = document.querySelector(".scoreboard__score--player");
-        
+        const roundCount = document.querySelector(".scoreboard__round-count");
+        roundCount.textContent = 0;
+
+    
+
+        // Function to tally and update scoreboard with round count, player score, and computer score
+
+        function scoreCount(roundResult) {
+            let roundCount = 1;
+            let compScore = 0;
+            let playerScore = 0;
+            if (roundResult.includes("You win")) {
+                playerScore += 1;
+            } else if (roundResult.includes("draw")) {
+                // pass
+            } else {
+                compScore +=1;
+            }
+            roundCount += 1;
+            return `Round: ${roundCount} Player score: ${playerScore} Computer score: ${compScore}`
+        }
+
 
         // Add an event listener for all buttons that inputs the button as the playerSelection arg for playRound, and then uses the result of the round as the new content for the <p> element that shows round result.
 
         buttons.forEach(function(button) {
             button.addEventListener('click', function (e) {
                 let computerChoice = selectComputerChoice();
+                let currentRoundCount = parseInt(roundCount.textContent);
                 if (button.className.includes("rock")) {
                     roundResult.textContent = playRound("rock", computerChoice);
                     roundChoices.textContent = `Player: Rock Computer: ${capitalise(computerChoice)}`;
+           
                 } else if (button.className.includes("paper")) {
                     roundResult.textContent = playRound("paper", computerChoice);
                     roundChoices.textContent = `Player: Paper Computer: ${capitalise(computerChoice)}`;
+    
                 } else {
                     roundResult.textContent = playRound("scissors", computerChoice);
                     roundChoices.textContent = `Player: Scissors Computer: ${capitalise(computerChoice)}`;
-                }     
+                }    
+                currentRoundCount += 1;
+                roundCount.textContent = currentRoundCount;
             });
         });
 
@@ -104,21 +130,4 @@
             } else {
                 return "You win! Well done.";
             }
-        }
-
-        // Function to tally and update scoreboard with round count, player score, and computer score
-
-        function scoreCount() {
-            let roundCount = 1;
-            let compScore = 0;
-            let playerScore = 0;
-            let result = roundResult.textContent;
-            if (result.includes("You win")) {
-                playerScore += 1;
-            } else if (result.includes("draw")) {
-                // pass
-            } else {
-                compScore +=1;
-            }
-            roundCount += 1;
         }
