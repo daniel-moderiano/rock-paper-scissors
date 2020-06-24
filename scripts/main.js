@@ -11,15 +11,16 @@
             }
         }
 
+        // Manual input function for player choice selection
+
         function selectPlayerChoice() {
             let playerSelection = window.prompt("Rock, Paper, or Scissors?");
             return playerSelection.toLowerCase();
         }
         
+        // PlayRound uses a player selected input, either by input or button click, and also calls the selectComputerChoice function which returns a random choice. The two choices are then compared using rock, paper scissors rules, and a winner is declared.  
 
         function playRound(playerSelection, computerSelection) {
-            console.log((`You chose: ${playerSelection} \nThe computer chose: ${computerSelection}`));
-
             if (playerSelection === computerSelection) {
                 return "It's a draw!";
             }
@@ -38,24 +39,32 @@
                 return "You win! Scissors beats Paper";
             }
         }
-        
-        // EventListener for each button that calls the playRound function on each click
 
-        // const buttonRock = document.querySelector(".button--rock");
-        // const buttonPaper = document.querySelector(".button--paper");
-        // const buttonScissors = document.querySelector(".button--scissors");
+        function capitalise(aString) {
+            return aString.replace(aString[0], aString[0].toUpperCase());
+        }
+
+        const roundChoices = document.querySelector(".scoreboard__choices");
         const buttons = document.querySelectorAll(".button");
+        const roundResult = document.querySelector(".scoreboard__round-result");
+        const playerScore = document.querySelector(".scoreboard__score--player");
+        const compScore = document.querySelector(".scoreboard__score--player");
+        
 
-        // Add function on click with the following code, using "function" syntax
+        // Add an event listener for all buttons that inputs the button as the playerSelection arg for playRound, and then uses the result of the round as the new content for the <p> element that shows round result.
 
         buttons.forEach(function(button) {
             button.addEventListener('click', function (e) {
+                let computerChoice = selectComputerChoice();
                 if (button.className.includes("rock")) {
-                    console.log(("rock selected"));
+                    roundResult.textContent = playRound("rock", computerChoice);
+                    roundChoices.textContent = `Player: Rock Computer: ${capitalise(computerChoice)}`;
                 } else if (button.className.includes("paper")) {
-                    console.log(("paper selected"));
+                    roundResult.textContent = playRound("paper", computerChoice);
+                    roundChoices.textContent = `Player: Paper Computer: ${capitalise(computerChoice)}`;
                 } else {
-                    console.log("scissors selected");
+                    roundResult.textContent = playRound("scissors", computerChoice);
+                    roundChoices.textContent = `Player: Scissors Computer: ${capitalise(computerChoice)}`;
                 }     
             });
         });
@@ -69,13 +78,15 @@
         // });
         
 
+        // Function to play through 5 consecutive rounds vs computer and announce a winner
+
         function game() {
             let roundCount = 1;
             let compScore = 0;
             let playerScore = 0;
             for (i = 0; i < 5; i++) {
                 console.log(`ROUND ${roundCount}`);
-                let result = playRound(selectPlayerChoice(), selectComputerChoice());
+                let result = roundResult.textContent;
                 if (result.includes("You win")) {
                     playerScore += 1;
                 } else if (result.includes("draw")) {
@@ -93,4 +104,21 @@
             } else {
                 return "You win! Well done.";
             }
+        }
+
+        // Function to tally and update scoreboard with round count, player score, and computer score
+
+        function scoreCount() {
+            let roundCount = 1;
+            let compScore = 0;
+            let playerScore = 0;
+            let result = roundResult.textContent;
+            if (result.includes("You win")) {
+                playerScore += 1;
+            } else if (result.includes("draw")) {
+                // pass
+            } else {
+                compScore +=1;
+            }
+            roundCount += 1;
         }
