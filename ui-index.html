@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <link rel="stylesheet" href="../../resources/reset.css">
+    <link rel="stylesheet" href="../../../resources/reset.css">
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
@@ -21,12 +21,28 @@
         </div>
         <div class="scoreboard">
             <h2 class="scoreboard__title">Score</h2>
-            <p class = "scoreboard__score scoreboard__score--player"></p>
-            <p class = "scoreboard__score scoreboard__score--comp"></p>
-            <p class="scoreboard__round-count"></p>
-            <p class="scoreboard__choices"></p>
-            <p class="scoreboard__round-result"></p>
+
+            <div class="scoreboard__container scoreboard__container--player-score">
+                <p class = "scoreboard__label scoreboard__label--player">You: </p>
+                <p class="scoreboard__score scoreboard__score--player"></p>
+            </div>
+
+            <div class="scoreboard__container scoreboard__container--computer-score">
+                <p class = "scoreboard__label scoreboard__label--comp">Computer: </p>
+                <p class="scoreboard__score scoreboard__score--computer"></p>
+            </div>
+
+            <div class="scoreboard__container scoreboard__container--round">
+                <p class="scoreboard__label scoreboard__label--round">Round: </p>
+                <p class="scoreboard__round-count"></p>
+            </div>
+            
         </div>
+
+        <div class="result"></div>
+        <p class="result__choices"></p>
+        <p class="result__outcome"></p>
+
     </main>
     <script type="text/javascript" src="scripts/main.js"></script>
 </body>

@@ -21,6 +21,29 @@ button {
     padding: 0.2rem;
 }
 
+
 .button-container {
     padding-bottom: 1.5rem;
+}
+
+.scoreboard__container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.25rem;
+}
+
+.scoreboard__label {
+    padding-right: 0.25rem;
+}
+
+.scoreboard {
+    text-align: center;
+   
+    margin: 0 auto;
+}
+
+.scoreboard__title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding-bottom: 0.5rem;
 }

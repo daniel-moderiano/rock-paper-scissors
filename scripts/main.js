@@ -21,10 +21,7 @@
         // PlayRound uses a player selected input, either by input or button click, and also calls the selectComputerChoice function which returns a random choice. The two choices are then compared using rock, paper scissors rules, and a winner is declared.  
 
         function playRound(playerSelection, computerSelection) {
-            if (playerSelection === computerSelection) {
-                return "It's a draw!";
-            }
-
+            if (playerSelection === computerSelection) {return "It's a draw!";}
             if (playerSelection === "rock" && computerSelection === "paper") {
                 return "You lose! Paper beats Rock";
             } else if (playerSelection === "rock" && computerSelection === "scissors") {
@@ -44,9 +41,9 @@
             return aString.replace(aString[0], aString[0].toUpperCase());
         }
 
-        const roundChoices = document.querySelector(".scoreboard__choices");
+        const roundChoices = document.querySelector(".result__choices");
         const buttons = document.querySelectorAll(".button");
-        const roundResult = document.querySelector(".scoreboard__round-result");
+        const roundResult = document.querySelector(".result__outcome");
         const playerScore = document.querySelector(".scoreboard__score--player");
         const compScore = document.querySelector(".scoreboard__score--player");
         const roundCount = document.querySelector(".scoreboard__round-count");
