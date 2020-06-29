@@ -28,7 +28,7 @@ button {
 
 .scoreboard__container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0.25rem;
 }
 
@@ -38,7 +38,6 @@ button {
 
 .scoreboard {
     text-align: center;
-   
     margin: 0 auto;
 }
 
@@ -46,4 +45,8 @@ button {
     font-size: 1.25rem;
     font-weight: bold;
     padding-bottom: 0.5rem;
+}
+
+.result {
+    padding: 0.5rem;
 }

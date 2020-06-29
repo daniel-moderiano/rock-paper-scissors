@@ -41,13 +41,17 @@
             return aString.replace(aString[0], aString[0].toUpperCase());
         }
 
+        // Initialise all document variables here
+
         const roundChoices = document.querySelector(".result__choices");
         const buttons = document.querySelectorAll(".button");
         const roundResult = document.querySelector(".result__outcome");
         const playerScore = document.querySelector(".scoreboard__score--player");
-        const compScore = document.querySelector(".scoreboard__score--player");
+        const computerScore = document.querySelector(".scoreboard__score--computer");
         const roundCount = document.querySelector(".scoreboard__round-count");
         roundCount.textContent = 0;
+        computerScore.textContent = 0;
+        playerScore.textContent = 0;
 
     
 
@@ -68,6 +72,10 @@
             return `Round: ${roundCount} Player score: ${playerScore} Computer score: ${compScore}`
         }
 
+        // Function to recognise text content from button click and tally score based on this
+
+        
+
 
         // Add an event listener for all buttons that inputs the button as the playerSelection arg for playRound, and then uses the result of the round as the new content for the <p> element that shows round result.
 
@@ -75,6 +83,8 @@
             button.addEventListener('click', function (e) {
                 let computerChoice = selectComputerChoice();
                 let currentRoundCount = parseInt(roundCount.textContent);
+                let currentPlayerScore = parseInt(playerScore.textContent);
+                let currentComputerScore = parseInt(computerScore.textContent);
                 if (button.className.includes("rock")) {
                     roundResult.textContent = playRound("rock", computerChoice);
                     roundChoices.textContent = `Player: Rock Computer: ${capitalise(computerChoice)}`;
@@ -89,6 +99,20 @@
                 }    
                 currentRoundCount += 1;
                 roundCount.textContent = currentRoundCount;
+                
+
+                if (roundResult.textContent.includes("You win")) {
+                    console.log("player");
+                    currentPlayerScore += 1;
+                    playerScore.textContent = currentPlayerScore;
+                } else if (roundResult.textContent.includes("draw")) {
+                    // pass
+                } else {
+                    console.log("computer");
+                    currentComputerScore +=1;
+                    computerScore.textContent = currentComputerScore;
+                }
+
             });
         });
 
