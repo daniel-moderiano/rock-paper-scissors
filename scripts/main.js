@@ -49,6 +49,7 @@
         const playerScore = document.querySelector(".scoreboard__score--player");
         const computerScore = document.querySelector(".scoreboard__score--computer");
         const roundCount = document.querySelector(".scoreboard__round-count");
+        const winner = document.querySelector(".result__winner");
         roundCount.textContent = 0;
         computerScore.textContent = 0;
         playerScore.textContent = 0;
@@ -72,11 +73,6 @@
             return `Round: ${roundCount} Player score: ${playerScore} Computer score: ${compScore}`
         }
 
-        // Function to recognise text content from button click and tally score based on this
-
-        
-
-
         // Add an event listener for all buttons that inputs the button as the playerSelection arg for playRound, and then uses the result of the round as the new content for the <p> element that shows round result.
 
         buttons.forEach(function(button) {
@@ -99,18 +95,27 @@
                 }    
                 currentRoundCount += 1;
                 roundCount.textContent = currentRoundCount;
-                
 
                 if (roundResult.textContent.includes("You win")) {
-                    console.log("player");
                     currentPlayerScore += 1;
                     playerScore.textContent = currentPlayerScore;
                 } else if (roundResult.textContent.includes("draw")) {
                     // pass
                 } else {
-                    console.log("computer");
                     currentComputerScore +=1;
                     computerScore.textContent = currentComputerScore;
+                }
+
+                if (playerScore.textContent === "5") {
+                    winner.textContent = "GAME OVER! Player Wins!";
+                    computerScore.textContent = 0;
+                    playerScore.textContent = 0;
+                    roundCount.textContent = 0;
+                } else if (computerScore.textContent === "5") {
+                    winner.textContent = "GAME OVER! Computer Wins!";
+                    computerScore.textContent = 0;
+                    playerScore.textContent = 0;
+                    roundCount.textContent = 0;
                 }
 
             });

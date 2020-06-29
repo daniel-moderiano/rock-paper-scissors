@@ -4,78 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="../../../resources/reset.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    <script>
-        // computerPlay - function to randomly return either "Rock", "Paper" or "Scissors"
-     
-        function selectComputerChoice() {
-            let rand = Math.random();
-            if (rand <= 1/3) {
-                return "rock";
-            } else if (rand > 1/3 && rand <= 2/3) {
-                return "paper";
-            } else {
-                return "scissors";
-            }
-        }
+    <header class="header">
+        <h1 class="header__title">Rock, Paper, Scissors</h1>
+        <h2 class="header__sub-title">Play against the computer in this classic game!</h2>
+    </header>
+    
+    <main class="main">
 
-        function selectPlayerChoice() {
-            let playerSelection = window.prompt("Rock, Paper, or Scissors?");
-            return playerSelection.toLowerCase();
-        }
+        <div class="button-container">
+            <button class="button button--rock">Rock</button>
+            <button class="button button--paper">Paper</button>
+            <button class="button button--scissors">Scissors</button>
+        </div>
+
+        <div class="scoreboard">
+            <h2 class="scoreboard__title">Score</h2>
+
+            <div class="scoreboard__container scoreboard__container--player-score">
+                <p class = "scoreboard__label scoreboard__label--player">You: </p>
+                <p class="scoreboard__score scoreboard__score--player"></p>
+            </div>
+
+            <div class="scoreboard__container scoreboard__container--computer-score">
+                <p class = "scoreboard__label scoreboard__label--comp">Computer: </p>
+                <p class="scoreboard__score scoreboard__score--computer"></p>
+            </div>
+
+            <div class="scoreboard__container scoreboard__container--round">
+                <p class="scoreboard__label scoreboard__label--round">Round: </p>
+                <p class="scoreboard__round-count"></p>
+            </div>
+            
+        </div>
+
+        <div class="result">
+            <p class="result__choices"></p>
+            <p class="result__outcome"></p>
+            <p class="result__winner"></p>
+        </div>
         
 
-        function playRound(playerSelection, computerSelection) {
-            console.log((`You chose: ${playerSelection} \nThe computer chose: ${computerSelection}`));
-
-            if (playerSelection === computerSelection) {
-                return "It's a draw!";
-            }
-
-            if (playerSelection === "rock" && computerSelection === "paper") {
-                return "You lose! Paper beats Rock";
-            } else if (playerSelection === "rock" && computerSelection === "scissors") {
-                return "You win! Rock beats Scissors";
-            } else if (playerSelection === "paper" && computerSelection === "scissors") {
-                return "You lose! Scissors beats Paper";
-            } else if (playerSelection === "paper" && computerSelection === "rock") {
-                return "You win! Paper beats Rock";
-            } else if (playerSelection === "scissors" && computerSelection === "rock") {
-                return "You lose! Rock beats Scissors";
-            } else if (playerSelection === "scissors" && computerSelection === "paper") {
-                return "You win! Scissors beats Paper";
-            }
-        }
-        
-
-        function game() {
-            let roundCount = 1;
-            let compScore = 0;
-            let playerScore = 0;
-            for (i = 0; i < 5; i++) {
-                console.log(`ROUND ${roundCount}`);
-                let result = playRound(selectPlayerChoice(), selectComputerChoice());
-                if (result.includes("You win")) {
-                    playerScore += 1;
-                } else {
-                    compScore += 1;
-                }
-                roundCount += 1;
-                console.log(result + `\nSCORE \nYou: ${playerScore} \nComputer: ${compScore}`);
-            }
-            if (compScore > playerScore) {
-                return "Computer wins! Bad luck.";
-            } else if (compScore === playerScore) {
-                return "A complete draw!";
-            } else {
-                return "You win! Well done.";
-            }
-        }
-  
-        // console.log(game())
-
-
-    </script>
+    </main>
+    <script type="text/javascript" src="scripts/main.js"></script>
 </body>
 </html>
