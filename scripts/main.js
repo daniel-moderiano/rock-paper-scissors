@@ -1,14 +1,8 @@
         // computerPlay - function to randomly return either "Rock", "Paper" or "Scissors"
      
         function selectComputerChoice() {
-            let rand = Math.random();
-            if (rand <= 1/3) {
-                return "rock";
-            } else if (rand > 1/3 && rand <= 2/3) {
-                return "paper";
-            } else {
-                return "scissors";
-            }
+            let choices = ["rock", "paper", "scissors"];
+            return choices[Math.floor(Math.random() * 3)];           
         }
 
         // Manual input function for player choice selection
@@ -107,12 +101,12 @@
                 }
 
                 if (playerScore.textContent === "5") {
-                    winner.textContent = "GAME OVER! Player Wins!";
+                    alert("GAME OVER! Player Wins!");
                     computerScore.textContent = 0;
                     playerScore.textContent = 0;
                     roundCount.textContent = 0;
                 } else if (computerScore.textContent === "5") {
-                    winner.textContent = "GAME OVER! Computer Wins!";
+                    alert("GAME OVER! Computer Wins!");
                     computerScore.textContent = 0;
                     playerScore.textContent = 0;
                     roundCount.textContent = 0;

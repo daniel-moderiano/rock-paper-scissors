@@ -15,24 +15,21 @@
     
     <main class="main">
 
-        <div class="button-container">
-            <button class="button button--rock">Rock</button>
-            <button class="button button--paper">Paper</button>
-            <button class="button button--scissors">Scissors</button>
-        </div>
-
         <div class="scoreboard">
             <h2 class="scoreboard__title">Score</h2>
 
-            <div class="scoreboard__container scoreboard__container--player-score">
-                <p class = "scoreboard__label scoreboard__label--player">You: </p>
-                <p class="scoreboard__score scoreboard__score--player"></p>
+            <div class="scoreboard__scores">
+                <div class="scoreboard__container scoreboard__container--player-score">
+                    <p class = "scoreboard__label scoreboard__label--player">You: </p>
+                    <p class="scoreboard__score scoreboard__score--player"></p>
+                </div>
+    
+                <div class="scoreboard__container scoreboard__container--computer-score">
+                    <p class = "scoreboard__label scoreboard__label--comp">Computer: </p>
+                    <p class="scoreboard__score scoreboard__score--computer"></p>
+                </div>
             </div>
-
-            <div class="scoreboard__container scoreboard__container--computer-score">
-                <p class = "scoreboard__label scoreboard__label--comp">Computer: </p>
-                <p class="scoreboard__score scoreboard__score--computer"></p>
-            </div>
+            
 
             <div class="scoreboard__container scoreboard__container--round">
                 <p class="scoreboard__label scoreboard__label--round">Round: </p>
@@ -41,13 +38,18 @@
             
         </div>
 
+        <div class="button-container">
+            <button class="button button--rock">Rock</button>
+            <button class="button button--paper">Paper</button>
+            <button class="button button--scissors">Scissors</button>
+        </div>
+
         <div class="result">
             <p class="result__choices"></p>
             <p class="result__outcome"></p>
             <p class="result__winner"></p>
         </div>
         
-
     </main>
     <script type="text/javascript" src="scripts/main.js"></script>
 </body>

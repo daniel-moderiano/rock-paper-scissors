@@ -3,6 +3,11 @@ html {
     line-height: 1.5rem;
 }
 
+:focus {
+    outline: none;
+}
+
+
 
 main {
     width: 80vw;
@@ -11,19 +16,54 @@ main {
 }
 
 header {
-    width: 80vw;
+    width: 100vw;
     margin: 0 auto;
     text-align: center;
     padding: 1.5rem 0;
+    ;
+}
+
+.header__title {
+    color: black;
+    font-size: 2rem;
+    font-weight: bold;
+    padding-bottom: 0.5rem;
+}
+
+.header__sub-title {
+    color: black;
+    font-size: 1.2rem;
+    
 }
 
 button {
-    padding: 0.2rem;
+    background-color: white;
+    border-radius: 5px;
+    border: solid 1px rgb(33, 129, 65);
+    color: rgb(33, 129, 65);
+    padding: 0.5rem;
+    width: 5rem;
+    line-height: inherit;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+button:hover {
+    background-color: rgb(33, 129, 65);
+    box-shadow: 0 0 5px gray;
+    /* transition: 150ms ease; */
+    transition-property: background-color, border-color, box-shadow, color;
+    transition-duration: 150ms;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-property: background-color, box-shadow;
+    cursor: pointer; 
+    color: white;
 }
 
 
 .button-container {
-    padding-bottom: 1.5rem;
+    padding-bottom: 1rem;
 }
 
 .scoreboard__container {
@@ -39,7 +79,14 @@ button {
 .scoreboard {
     text-align: center;
     margin: 0 auto;
+    padding-bottom: 1rem;
 }
+
+.scoreboard__scores {
+    display: flex;
+    justify-content: center;
+}
+
 
 .scoreboard__title {
     font-size: 1.25rem;
@@ -48,6 +95,7 @@ button {
 }
 
 .result {
-    padding: 0.5rem;
+    /* padding: 0.5rem; */
     line-height: 1.5rem;
+    height: 3rem;
 }
