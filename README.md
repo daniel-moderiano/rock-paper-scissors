@@ -1,5 +1,4 @@
-First JavaScript Project within The Odin Project.
+# Rock Paper Scissors
+A simple implementation of the classic 'rock paper scissors' game. 
 
-Simple implementation of rock, paper, scissors within the browser console using JS (see no-ui directory).
-
-Later adapted into a very barebones UI to allow a 'first-to-five' game of rock, paper, scissors.
+The purpose of this project was to apply foundational JavaScript skills into my first real JavaScript project. 
